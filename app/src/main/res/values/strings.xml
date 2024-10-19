@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Users List Posts</string>
+    <string name="users_list">Users</string>
+    <string name="posts_list">Posts</string>
+    <string name="placeholder_result">Placeholder result text</string>
+    <string name="loading">Loading ...</string>
+    <string name="loading_failed">Loading Failed</string>
+    <string name="back_button">Back Button</string>
+</resources>
