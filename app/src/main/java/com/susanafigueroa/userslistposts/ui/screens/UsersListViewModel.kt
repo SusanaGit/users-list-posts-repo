@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.susanafigueroa.userslistposts.data.NetworkUsersListPostsRepository
 import com.susanafigueroa.userslistposts.model.Post
 import com.susanafigueroa.userslistposts.model.User
 import com.susanafigueroa.userslistposts.network.UsersListPostsApi
@@ -37,7 +38,10 @@ class UsersListPostsViewModel: ViewModel() {
     private fun getUsers() {
         viewModelScope.launch {
             try {
-                val listResult = UsersListPostsApi.retrofitService.getUsers()
+
+                val usersListRepository = NetworkUsersListPostsRepository()
+                val listResult = usersListRepository.getUsers()
+
                 usersListUiState = UsersListUiState.Success(
                     listResult
                 )
@@ -52,7 +56,10 @@ class UsersListPostsViewModel: ViewModel() {
     fun userSelected(userId: Int) {
         viewModelScope.launch {
             try {
-                val listPostsResult = UsersListPostsApi.retrofitService.getPosts(userId)
+
+                val postsListRepository = NetworkUsersListPostsRepository()
+                val listPostsResult = postsListRepository.getPosts(userId)
+
                 postsListUiState = PostsListUiState.Success(
                     listPostsResult
                 )
