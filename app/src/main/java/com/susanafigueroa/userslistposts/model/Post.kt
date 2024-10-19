@@ -1,4 +1,4 @@
-package com.susanafigueroa.userslistposts.network
+package com.susanafigueroa.userslistposts.model
 
 import kotlinx.serialization.Serializable
 

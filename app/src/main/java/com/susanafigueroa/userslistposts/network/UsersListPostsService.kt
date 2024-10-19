@@ -1,6 +1,8 @@
 package com.susanafigueroa.userslistposts.network
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.susanafigueroa.userslistposts.model.Post
+import com.susanafigueroa.userslistposts.model.User
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit

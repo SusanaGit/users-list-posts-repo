@@ -23,7 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.susanafigueroa.userslistposts.R
-import com.susanafigueroa.userslistposts.network.User
+import com.susanafigueroa.userslistposts.model.User
 
 @Composable
 fun UsersScreen(

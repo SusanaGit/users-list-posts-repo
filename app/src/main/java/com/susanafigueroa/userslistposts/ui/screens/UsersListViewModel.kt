@@ -5,8 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.susanafigueroa.userslistposts.network.Post
-import com.susanafigueroa.userslistposts.network.User
+import com.susanafigueroa.userslistposts.model.Post
+import com.susanafigueroa.userslistposts.model.User
 import com.susanafigueroa.userslistposts.network.UsersListPostsApi
 import kotlinx.coroutines.launch
 import java.io.IOException
