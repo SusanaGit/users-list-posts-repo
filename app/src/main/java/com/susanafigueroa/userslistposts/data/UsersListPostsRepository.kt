@@ -13,11 +13,9 @@ interface UsersListPostsRepository {
 class NetworkUsersListPostsRepository(
     private val usersListPostsApiService: UsersListPostsApiService
 ): UsersListPostsRepository {
-    override suspend fun getUsers(): List<User> {
-        return UsersListPostsApi.retrofitService.getUsers()
-    }
+    override suspend fun getUsers(): List<User> =
+        usersListPostsApiService.getUsers()
 
-    override suspend fun getPosts(userId: Int): List<Post> {
-        return UsersListPostsApi.retrofitService.getPosts(userId)
-    }
+    override suspend fun getPosts(userId: Int): List<Post> =
+        usersListPostsApiService.getPosts(userId)
 }
