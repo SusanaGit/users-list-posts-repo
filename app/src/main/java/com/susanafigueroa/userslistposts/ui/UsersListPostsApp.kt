@@ -94,7 +94,7 @@ fun UsersListPostsApp(
                         contentPadding = paddingValues)
                 }
                 composable(route = "${UsersListPostsScreen.Posts.name}/{id}") {
-                    val postsListViewModel: UsersListPostsViewModel = viewModel()
+                    val postsListViewModel: UsersListPostsViewModel = viewModel(factory = UsersListPostsViewModel.Factory)
                     if (currentUserId != null) {
                         postsListViewModel.userSelected(currentUserId!!)
                         PostsScreen(
