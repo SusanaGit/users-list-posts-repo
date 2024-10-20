@@ -4,7 +4,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
+import com.susanafigueroa.userslistposts.UsersListPostsApplication
 import com.susanafigueroa.userslistposts.data.NetworkUsersListPostsRepository
 import com.susanafigueroa.userslistposts.data.UsersListPostsRepository
 import com.susanafigueroa.userslistposts.model.Post
@@ -40,8 +45,7 @@ class UsersListPostsViewModel(private val usersListPostsRepository: UsersListPos
         viewModelScope.launch {
             try {
 
-                val usersListRepository = NetworkUsersListPostsRepository()
-                val listResult = usersListRepository.getUsers()
+                val listResult = usersListPostsRepository.getUsers()
 
                 usersListUiState = UsersListUiState.Success(
                     listResult
@@ -58,8 +62,7 @@ class UsersListPostsViewModel(private val usersListPostsRepository: UsersListPos
         viewModelScope.launch {
             try {
 
-                val postsListRepository = NetworkUsersListPostsRepository()
-                val listPostsResult = postsListRepository.getPosts(userId)
+                val listPostsResult = usersListPostsRepository.getPosts(userId)
 
                 postsListUiState = PostsListUiState.Success(
                     listPostsResult
@@ -68,6 +71,16 @@ class UsersListPostsViewModel(private val usersListPostsRepository: UsersListPos
             } catch (e: IOException) {
                 println(e.message)
                 postsListUiState = PostsListUiState.Error
+            }
+        }
+    }
+
+    companion object {
+        val Factory: ViewModelProvider.Factory = viewModelFactory {
+            initializer {
+                val application = (this[APPLICATION_KEY] as UsersListPostsApplication)
+                val usersListPostsRepository = application.container.usersListPostsRepository
+                UsersListPostsViewModel(usersListPostsRepository = usersListPostsRepository)
             }
         }
     }
