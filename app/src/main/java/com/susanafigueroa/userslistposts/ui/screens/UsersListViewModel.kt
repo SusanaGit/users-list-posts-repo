@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.susanafigueroa.userslistposts.data.NetworkUsersListPostsRepository
+import com.susanafigueroa.userslistposts.data.UsersListPostsRepository
 import com.susanafigueroa.userslistposts.model.Post
 import com.susanafigueroa.userslistposts.model.User
 import com.susanafigueroa.userslistposts.network.UsersListPostsApi
@@ -24,7 +25,7 @@ sealed interface PostsListUiState {
     object Loading: PostsListUiState
 }
 
-class UsersListPostsViewModel: ViewModel() {
+class UsersListPostsViewModel(private val usersListPostsRepository: UsersListPostsRepository): ViewModel() {
     var usersListUiState: UsersListUiState by mutableStateOf(UsersListUiState.Loading)
         private set
 
