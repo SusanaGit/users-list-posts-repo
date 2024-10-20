@@ -10,11 +10,9 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.susanafigueroa.userslistposts.UsersListPostsApplication
-import com.susanafigueroa.userslistposts.data.NetworkUsersListPostsRepository
 import com.susanafigueroa.userslistposts.data.UsersListPostsRepository
 import com.susanafigueroa.userslistposts.model.Post
 import com.susanafigueroa.userslistposts.model.User
-import com.susanafigueroa.userslistposts.network.UsersListPostsApi
 import kotlinx.coroutines.launch
 import java.io.IOException
 

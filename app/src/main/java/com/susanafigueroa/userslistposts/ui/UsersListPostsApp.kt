@@ -85,7 +85,7 @@ fun UsersListPostsApp(
                 startDestination = UsersListPostsScreen.Users.name
             ) {
                 composable(route = UsersListPostsScreen.Users.name) {
-                    val usersListViewModel: UsersListPostsViewModel = viewModel()
+                    val usersListViewModel: UsersListPostsViewModel = viewModel(factory = UsersListPostsViewModel.Factory)
                     UsersScreen(
                         usersListUiState = usersListViewModel.usersListUiState,
                         onUserClicked = { id ->
