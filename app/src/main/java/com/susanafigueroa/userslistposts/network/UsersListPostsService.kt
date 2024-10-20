@@ -28,9 +28,3 @@ interface UsersListPostsApiService {
     @GET("posts")
     suspend fun getPosts(@Query("userId") userId: Int): List<Post>
 }
-
-object UsersListPostsApi {
-    val retrofitService: UsersListPostsApiService by lazy {
-        retrofit.create(UsersListPostsApiService::class.java)
-    }
-}
